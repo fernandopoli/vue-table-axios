@@ -100,7 +100,7 @@ export default {
       currentPage: 1,
       perPage: 5,
       totalRows: items.length,
-      pageOptions: [2, 5, 15],
+      pageOptions: [2, 5, 10],
       sortBy: null,
       sortDesc: false,
       sortDirection: "asc",
@@ -112,6 +112,7 @@ export default {
       .get("https://swapi.co/api/planets/?format=json")
       .then(response => {
         this.items = response.data.results;
+        this.totalRows = this.items.length;
       })
       .catch(error => console.log(error));
   },
